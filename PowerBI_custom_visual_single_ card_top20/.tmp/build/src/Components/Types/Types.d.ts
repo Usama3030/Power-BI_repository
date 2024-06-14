@@ -2,7 +2,7 @@ import powerbi from "powerbi-visuals-api";
 export type appState = powerbi.DataView[];
 export type appRequired = {
     id?: string;
-    name?: string;
+    Name?: string;
     url?: string;
     salary?: number;
 };

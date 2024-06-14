@@ -1,22 +1,3 @@
-/* .container {
-  background-color: #a51d35;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.card-wrapper {
-  background-color: white;
-  margin: 40px;
-  padding: 0px 40px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 700px;
-  box-sizing: border-box;
-} */
-
 .card-wrapper {
   background-color: white;
   width: 100%;
@@ -66,6 +47,10 @@
   text-align: center;
 }
 
+.cards-grid > .card:last-child {
+  grid-column-start: 1 / -1;
+}
+
 .card:nth-child(1) {
   background-color: #ce184e;
   color: white;
@@ -73,7 +58,7 @@
 
 .card:nth-child(2) {
   background-color: #ffd300;
-  color: white;
+  color: black;
 }
 
 .card:nth-child(3) {
@@ -118,6 +103,7 @@
 .card-index {
   position: absolute;
   background-color: #b5b5b5;
+  color: white;
   bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
@@ -140,6 +126,5 @@
 }
 
 .card:nth-child(3) .card-index {
-  background-color: #3f3f3f;
   background-color: #838383;
 }

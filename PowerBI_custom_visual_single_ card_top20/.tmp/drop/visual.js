@@ -3,7 +3,7 @@ var practiceBA8B93128F294885B62BE9FA88A1B276_DEBUG;
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 30:
+/***/ 794:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -11,41 +11,72 @@ var practiceBA8B93128F294885B62BE9FA88A1B276_DEBUG;
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(848);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(540);
-/* harmony import */ var _Hooks_useApp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(506);
-/* harmony import */ var _Context_Context__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(358);
-/* harmony import */ var _Views_UserCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(413);
+/* harmony import */ var _Hooks_useApp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(678);
+/* harmony import */ var _Context_Context__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(490);
+/* harmony import */ var _Views_UserCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(809);
 
 
 
 
 
 
-const data = (state) => {
+// const data = (state: appState) => {
+//   const getState: appRequired[] = [];
+//   if (state) {
+//     const path = state[0].categorical.categories;
+//     const path2 = state[0].categorical.values;
+//     for (let i = 0; i < path[0].values.length; i++) {
+//       const getValue = {};
+//       for (let j = 0; j < path.length; j++) {
+//         const name1: string = path[j].source.displayName ?? "";
+//         const value1: string = path[j].values[i]
+//           ? path[j].values[i].toString()
+//           : "";
+//         const name2: string = path2[j].source.displayName ?? "";
+//         const value2: string = path2[j].values[i]
+//           ? path2[j].values[i].toString()
+//           : "";
+//         getValue[name1] = value1;
+//         getValue[name2] = value2;
+//       }
+//       getState.push(getValue);
+//     }
+//     // for (let i = 0; i < path2[0].values.length; i++) {
+//     //   const getValue = {};
+//     //   for (let j = 0; j < path2.length; j++) {}
+//     //   getState.push(getValue);
+//     // }
+//   }
+//   return getState;
+// };
+const defaultFieldMapping = {
+    "Sum of Salary": "salary",
+    Name: "name",
+};
+const data = (state, userFieldMapping = {}) => {
     const getState = [];
+    const fieldMapping = { ...defaultFieldMapping, ...userFieldMapping };
     if (state) {
         const path = state[0].categorical.categories;
         const path2 = state[0].categorical.values;
         for (let i = 0; i < path[0].values.length; i++) {
             const getValue = {};
             for (let j = 0; j < path.length; j++) {
-                const name1 = path[j].source.displayName ?? "";
-                const value1 = path[j].values[i]
-                    ? path[j].values[i].toString()
-                    : "";
-                const name2 = path2[j].source.displayName ?? "";
-                const value2 = path2[j].values[i]
-                    ? path2[j].values[i].toString()
-                    : "";
+                const name1 = fieldMapping[path[j].source.displayName] ??
+                    path[j].source.displayName;
+                const value1 = path[j].values[i] ? path[j].values[i].toString() : "";
                 getValue[name1] = value1;
+            }
+            for (let j = 0; j < path2.length; j++) {
+                const name2 = fieldMapping[path2[j].source.displayName] ??
+                    path2[j].source.displayName;
+                const value2 = path2[j].values[i]
+                    ? path2[j].values[i].toLocaleString()
+                    : "";
                 getValue[name2] = value2;
             }
             getState.push(getValue);
         }
-        // for (let i = 0; i < path2[0].values.length; i++) {
-        //   const getValue = {};
-        //   for (let j = 0; j < path2.length; j++) {}
-        //   getState.push(getValue);
-        // }
     }
     return getState;
 };
@@ -65,7 +96,7 @@ const App = () => {
 
 /***/ }),
 
-/***/ 358:
+/***/ 490:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -78,7 +109,7 @@ const Context = (0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);
 
 /***/ }),
 
-/***/ 506:
+/***/ 678:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -105,7 +136,7 @@ const useApp = () => {
 
 /***/ }),
 
-/***/ 413:
+/***/ 809:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -113,84 +144,32 @@ const useApp = () => {
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(848);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(540);
-/* harmony import */ var _Context_Context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(358);
+/* harmony import */ var _Context_Context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(490);
 
 
 
 
-// const cardData = [
-//   {
-//     id: 1,
-//     name: "Muhammad Babar Khan",
-//     money: 10000.0,
-//     URL: userImg,
-//   },
-//   {
-//     id: 2,
-//     name: "Muhammad Babar Khan",
-//     money: 100000.0,
-//     URL: userImg,
-//   },
-//   {
-//     id: 3,
-//     name: "Muhammad Babar Khan",
-//     money: 1000000.0,
-//     URL: userImg,
-//   },
-//   {
-//     id: 4,
-//     name: "Muhammad Babar Khan",
-//     money: 20000.0,
-//     URL: userImg,
-//   },
-//   {
-//     id: 5,
-//     name: "Muhammad Babar Khan",
-//     money: 40000.0,
-//     URL: userImg,
-//   },
-//   {
-//     id: 6,
-//     name: "Muhammad Babar Khan",
-//     money: 30000.0,
-//     URL: userImg,
-//   },
-//   {
-//     id: 7,
-//     name: "Muhammad Babar Khan",
-//     money: 50000.0,
-//     URL: userImg,
-//   },
-//   {
-//     id: 8,
-//     name: "Muhammad Babar Khan",
-//     money: 60000.0,
-//   },
-//   {
-//     id: 9,
-//     name: "Muhammad Babar Khan",
-//     money: 80000.0,
-//     URL: userImg,
-//   },
-//   {
-//     id: 10,
-//     name: "Muhammad Babar Khan",
-//     money: 70000.0,
-//   },
-// ];
 const UserCard = () => {
     const context = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_Context_Context__WEBPACK_IMPORTED_MODULE_2__/* .Context */ .o);
     console.log("card-context", context);
     const { getState } = context;
     console.log("getState", getState);
-    // const sortedCardData = [...cardData].sort((a, b) => b.money - a.money);
-    // const topDonations = sortedCardData.slice(0, 10);
+    const numberOfTopDonations = 10;
     const sortedCardData = [...getState].sort((a, b) => b.salary - a.salary);
-    const topDonations = sortedCardData.slice(0, 10);
+    const topDonations = sortedCardData.slice(0, numberOfTopDonations);
     console.log(topDonations);
+    const getInitials = (name) => {
+        const nameParts = name.trim().split(" ");
+        if (nameParts.length === 1) {
+            return nameParts[0].slice(0, 2).toUpperCase();
+        }
+        return (nameParts[0][0] + nameParts[1][0]).toUpperCase();
+    };
     return (
     // <div className="container">
-    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "card-wrapper", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "card-heading", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h3", { children: ["TOP ", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { style: { color: "#FBC406" }, children: "10 " }), "DONATIONS BOARD"] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "card-container", children: getState.length === 0 ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "no-record", children: "No Record Found" })) : ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "cards-grid", children: topDonations.map((card) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "card", children: [card.url ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: card.url, alt: "Img", className: "card-image" })) : ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "card-image", children: card.Name.slice(0, 2) })), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "card-details", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "card-name", children: card.Name }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "card-money", children: ["$", card.salary?.toLocaleString()] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "card-index", children: card.id })] })] }, card.id))) })) })] })
+    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "card-wrapper", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "card-heading", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h3", { children: ["TOP ", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", { style: { color: "#FBC406" }, children: [numberOfTopDonations, " "] }), "DONATIONS BOARD"] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "card-container", children: getState.length === 0 ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "no-record", children: "No Record Found" })) : ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "cards-grid", children: topDonations.map((card, index) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "card", children: [card.url ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: card.url, alt: getInitials(card.name), className: "card-image" })) : (
+                            // <div className="card-image">{card.name.slice(0, 2)}</div>
+                            (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "card-image", children: getInitials(card.name) })), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "card-details", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "card-name", children: card.name }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "card-money", children: ["$", card.salary?.toLocaleString()] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "card-index", children: index + 1 })] })] }, card.id))) })) })] })
     // </div>
     );
 };
@@ -199,16 +178,16 @@ const UserCard = () => {
 
 /***/ }),
 
-/***/ 526:
+/***/ 370:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   b: () => (/* binding */ Visual)
 /* harmony export */ });
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(961);
-/* harmony import */ var _Components_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(30);
+/* harmony import */ var _Components_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(794);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(540);
-/* harmony import */ var _Components_Hooks_useApp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(506);
+/* harmony import */ var _Components_Hooks_useApp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(678);
 /*
  *  Power BI Visual CLI
  *
@@ -810,13 +789,13 @@ if (true) {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it declares 'practiceBA8B93128F294885B62BE9FA88A1B276_DEBUG' on top-level, which conflicts with the current library output.
 (() => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _src_visual__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(526);
+/* harmony import */ var _src_visual__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(370);
 
 var powerbiKey = "powerbi";
 var powerbi = window[powerbiKey];
