@@ -3,7 +3,7 @@ export type appState = powerbi.DataView[];
 
 export type appRequired = {
   id?: string;
-  name?: string;
-  email?: string;
+  Name?: string;
+  url?: string;
   salary?: number;
 };
